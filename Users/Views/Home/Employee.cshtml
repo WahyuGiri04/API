@@ -1,0 +1,315 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Employee";
+}
+<div class="container-fluid">
+    <h1 class="h3 mb-2 text-gray-800">Tabel Data Employee</h1>
+    <div class="row">
+        <div class="col-xl-12 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <a href="" data-toggle="modal" data-target="#tambahData" class="btn btn-success btn-lg"><i class="fa fa-plus"></i></a>
+                            <button id="exportExcel" class="btn btn-success btn-lg" data-toggle="tooltip" data-placement="bottom" title="Hooray!"><i class="fa fa-file-excel-o"></i></button>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-plus fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="tabelEmployee" width="150%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nik</th>
+                            <th scope="col">Nama</th>
+                            <th scope="col">Tangal Lahir</th>
+                            <th scope="col">No Telp</th>
+                            <th scope="col">Salary</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th scope="col">Nik</th>
+                            <th scope="col">Nama</th>
+                            <th scope="col">Tangal Lahir</th>
+                            <th scope="col">No Telp</th>
+                            <th scope="col">Salary</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Aksi</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="tambahData">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title"> Tambah Employee</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="EmployeeForm">
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <label for="validationTooltip01">NIK</label>
+                            <input type="text" class="form-control" id="NIK" name="NIK" placeholder="NIK">
+                            <div id="pesanNik" class="invalid-tooltip">
+                                NIK belum di isi !!!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="validationTooltip01">First name</label>
+                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First name">
+                            <div class="invalid-tooltip">
+                                First Name Harus diisi !!!
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationTooltip02">Last name</label>
+                            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last name">
+                            <div class="invalid-tooltip">
+                                Last Name Harus diisi !!!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-7 mb-3">
+                            <label for="validationTooltipUsername">Phone Number</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="validationTooltipUsernamePrepend">+ 62</span>
+                                </div>
+                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone">
+                                <div class="invalid-tooltip">
+                                    Nomor harus diisi !!!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 mb-3">
+                            <label for="validationTooltip01">Birth Date</label>
+                            <input type="date" class="form-control" id="birthDate" name="birthDate" placeholder="Birth Date">
+                            <div class="invalid-tooltip">
+                                Tanggal Harus diisi !!!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-4 mb-3">
+                            <label for="validationTooltip03">Salary</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="validationTooltipUsernamePrepend">Rp </span>
+                                </div>
+                                <input type="text" class="form-control" id="salary" name="salary" placeholder="Salary">
+                                <div class="invalid-tooltip">
+                                    salary harus diisi !!!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="validationTooltip04">Email</label>
+                            <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                            <div class="invalid-tooltip">
+                                Email harus diisi !!!
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="validationTooltip05">Gender</label>
+                            <select class="form-control" id="gender" name="gender" required>
+                                <option value="">Choose...</option>
+                                <option value="0">Male</option>
+                                <option value="1">Female</option>
+                            </select>
+                            <div class="invalid-tooltip">
+                                Gender harus diisi !!!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-3 mb-3">
+                            <label for="validationTooltip03">Degree</label>
+                            <select class="form-control" id="degree" name="degree" required>
+                                <option value="">Choose...</option>
+                                <option value="SMA">SMA</option>
+                                <option value="D-1">D-1</option>
+                                <option value="D-2">D-2</option>
+                                <option value="D-3">D-3</option>
+                                <option value="S-1">S-1</option>
+                                <option value="S-2">S-2</option>
+                                <option value="S-3">S-3</option>
+                            </select>
+                            <div class="invalid-tooltip">
+                                Degree harus diisi !!!
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="validationTooltip04">GPA</label>
+                            <input type="text" class="form-control" id="GPA" name="GPA" placeholder="GPA">
+                            <div class="invalid-tooltip">
+                                Email harus diisi !!!
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="validationTooltip05">Role</label>
+                            <select id="role" class="form-control" name="role" required>
+                            </select>
+                            <div class="invalid-tooltip">
+                                Gender harus diisi !!!
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="validationTooltip05">University</label>
+                            <select id="university" class="form-control" name="university" required>
+                            </select>
+                            <div class="invalid-tooltip">
+                                Gender harus diisi !!!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <label for="validationTooltip01">Password</label>
+                            <input type="password" autocomplete="on" class="form-control" id="password" name="password" placeholder="password">
+                            <div class="invalid-tooltip">
+                                Password belum di isi !!!
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close <i class="fa fa-window-close"></i></button>
+                <button type="button" id="btnSubmit" form="EmployeeForm" class="btn btn-success">Register <i class="fa fa-save"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="formEdit">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title"> Edit Employee</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="EmployeeFormEdit">
+                    <div class="form-row">
+                        <div class="col-md-12 mb-3">
+                            <label for="validationTooltip01">NIK</label>
+                            <input type="text" readonly class="form-control" id="eNIK" name="eNIK" placeholder="NIK">
+                            <div class="invalid-tooltip">
+                                NIK belum di isi !!!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="validationTooltip01">First name</label>
+                            <input type="text" class="form-control" id="eFirstName" name="eFirstName" placeholder="First name">
+                            <div class="invalid-tooltip">
+                                First Name Harus diisi !!!
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationTooltip02">Last name</label>
+                            <input type="text" class="form-control" id="eLastName" name="eLastName" placeholder="Last name">
+                            <div class="invalid-tooltip">
+                                Last Name Harus diisi !!!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-7 mb-3">
+                            <label for="validationTooltipUsername">Phone Number</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="validationTooltipUsernamePrepend">+ 62</span>
+                                </div>
+                                <input type="text" class="form-control" id="ePhone" name="ePhone" placeholder="Phone">
+                                <div class="invalid-tooltip">
+                                    Nomor harus diisi !!!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 mb-3">
+                            <label for="validationTooltip01">Birth Date</label>
+                            <input type="date" class="form-control" id="eBirthDate" name="eBirthDate" placeholder="Birth Date">
+                            <div class="invalid-tooltip">
+                                Tanggal Harus diisi !!!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-4 mb-3">
+                            <label for="validationTooltip03">Salary</label>
+                            <input type="text" class="form-control" id="eSalary" name="eSalary" placeholder="Salary">
+                            <div class="invalid-tooltip">
+                                salary harus diisi !!!
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="validationTooltip04">Email</label>
+                            <input type="text" class="form-control" id="eEmail" name="eEmail" placeholder="Email">
+                            <div class="invalid-tooltip">
+                                Email harus diisi !!!
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="validationTooltip05">Gender</label>
+                            <select class="form-control" id="eGender" name="eGender" required>
+                                <option value="">Choose...</option>
+                                <option value="0">Male</option>
+                                <option value="1">Female</option>
+                            </select>
+                            <div class="invalid-tooltip">
+                                Gender harus diisi !!!
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close <i class="fa fa-window-close"></i></button>
+                <button type="button" id="btnEdit" form="EmployeeForm" class="btn btn-success">Simpan Data <i class="fa fa-save"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="~/js/demo/datatables-demo.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>    
+    <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
+    <script src="~/js/Employee.js"></script>
+}

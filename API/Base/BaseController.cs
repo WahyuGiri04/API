@@ -1,4 +1,5 @@
 ﻿using API.Repository.Interface;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -28,7 +29,7 @@ namespace API.Base
             var result = repository.Get();
             if(result.Count() > 0)
             {
-                return Ok(new { status = HttpStatusCode.OK, result, Messege = "Data ada !!!" });
+                return Ok(result);
             }
             else
             {
@@ -42,7 +43,7 @@ namespace API.Base
             var result = repository.Get(key);
             if (result != null)
             {
-                return Ok(new { Status = HttpStatusCode.OK, Data = result, messege = "Data Berhasil di Temukan !!!" });
+                return Ok(result);
             }
             else
             {
@@ -69,8 +70,8 @@ namespace API.Base
         {
             try
             {
-                repository.Update(entity, key);
-                return Ok(new { status = HttpStatusCode.OK, messege = "Data Berhasil Diubah" });
+                var result = repository.Update(entity, key);
+                return Ok(new { status = HttpStatusCode.OK, message = $"Berhasil Update Key : {key} "});
             }
             //exception handling jika data NIK tidak ditemukan
             catch (Exception)

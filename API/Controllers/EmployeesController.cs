@@ -55,7 +55,7 @@ namespace API.Controllers
             }
         }
 
-        [Authorize(Roles = "Director, Manager")]
+        //[Authorize(Roles = "Director, Manager")]
         [HttpGet]
         [Route("Profile")]
         public ActionResult<Register> GetProfile()
@@ -63,7 +63,7 @@ namespace API.Controllers
             var result = employeeRepository.GetProfile();
             if (result != null)
             {
-                return Ok(new { Status = HttpStatusCode.OK, Data = result, messege = "Data Berhasil di Temukan !!!" });
+                return Ok(result);
             }
             else
             {
@@ -71,8 +71,8 @@ namespace API.Controllers
             }
         }
 
-        /*[Route("Register/{nik}")]
-        [HttpGet("{nik}")]*/
+        //[Route("Register/{nik}")]
+        //[HttpGet("{nik}")]
         [HttpGet]
         [Route("CariData")]
         public ActionResult<Register> GetProfile(string NIK)
@@ -80,7 +80,7 @@ namespace API.Controllers
             var result = employeeRepository.GetProfile(NIK);
             if (result != null)
             {
-                return Ok(new { Status = HttpStatusCode.OK, result, messege = "Data berhasil ditemukan" });
+                return Ok(result);
             }
             else
             {
@@ -176,6 +176,45 @@ namespace API.Controllers
             {
                 return NotFound(new { status = HttpStatusCode.NotFound, messege = "Data gagal di tambah (role sudah ada)" });
             }
+        }
+
+        [HttpDelete]
+        [Route("Hapus")]
+        public ActionResult Hapus(string NIK)
+        {
+            try
+            {
+                employeeRepository.Hapus(NIK);
+                return Ok(new { status = HttpStatusCode.OK, message = $"Berhasil Menghapus NIK : {NIK} " });
+            }
+            catch (Exception)
+            {
+                return NotFound(new { status = HttpStatusCode.NotFound, message = $"Gagal Menghapus NIK : {NIK} data tidak ditemukan" });
+            }
+        }
+
+        [HttpGet]
+        [Route("GetGender")]
+        public ActionResult<GetGender> GetGender()
+        {
+            var result = employeeRepository.GetGender();
+            return Ok(new { status = HttpStatusCode.OK, result, messege = "Berhasil" });
+        }
+
+        [HttpGet]
+        [Route("GetRole")]
+        public ActionResult GetRole()
+        {
+            var result = employeeRepository.GetRole();
+            return Ok(new { status = HttpStatusCode.OK, result, messege = "Berhasil" });
+        }
+
+        [HttpGet]
+        [Route("GetSalary")]
+        public ActionResult GetSalary()
+        {
+            var result = employeeRepository.GetSalary();
+            return Ok(new { status = HttpStatusCode.OK, result, messege = "Berhasil" });
         }
     }
 }

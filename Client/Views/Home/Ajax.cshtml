@@ -1,0 +1,32 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Ajax";
+    Layout = "_Layout";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-sm col-lg">
+            <h2>Ini Tabel Avengers</h2>
+            <table class="table tabel table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Nama</th>
+                        <th scope="col">Tinggi</th>
+                        <th scope="col">Berat</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelOrang">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/js/Ajax.js"></script>
+}

@@ -53,4 +53,11 @@ namespace API.Viewmodels
         public string RoleName { get; set; }
         public string UniversityName { get; set; }
     }
+
+    public class GetGender
+    {
+        [JsonConverter(typeof(StringEnumConverter))]
+        public Gender Gender { get; set; }
+        public int Jumlah { get; set; }
+    }
 }

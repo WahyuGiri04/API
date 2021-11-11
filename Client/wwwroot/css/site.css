@@ -69,3 +69,42 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+.bg-blue{
+    background-color : dodgerblue;
+}
+.bg-red{
+    background-color : red;
+}
+.row {
+    padding : 10px;
+}
+.bg-modal-detail{
+    padding : 30px;
+    border-radius : 20px 20px 20px 20px;
+}
+.badge{
+    padding : 10px;
+    margin-right : 10px;
+    font-size :15px;
+}
+.badge-poison {
+    background-color: #B76EA4;
+}
+.badge-grass {
+    background-color: #80BE62;
+}
+.badge-normal {
+    background-color: #B7B6A4;
+}
+.badge-flying {
+    background-color: #9AA8FA;
+}
+.badge-bug {
+    background-color: #B7C43F;
+}
+.badge-water {
+    background-color: #3399FF;
+}
+.button-align {
+    align-content: start;
+}

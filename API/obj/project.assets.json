@@ -7582,11 +7582,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\MCC\\Tutorial API\\Project API\\API\\API\\API.csproj",
+      "projectUniqueName": "E:\\MCC\\Project Tugas\\API\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "E:\\MCC\\Tutorial API\\Project API\\API\\API\\API.csproj",
+      "projectPath": "E:\\MCC\\Project Tugas\\API\\API\\API.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "E:\\MCC\\Tutorial API\\Project API\\API\\API\\obj\\",
+      "outputPath": "E:\\MCC\\Project Tugas\\API\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
