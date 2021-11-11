@@ -1,0 +1,72 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_BelajarCSS";
+}
+<div>
+    <div class="container">
+        <div class="row row-bg">
+            <div class="col-sm col-posisi">
+                <div class="row row-margin">
+                    <div class="card tulisan bg-ijo text-center">
+                        <p>Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.</p>
+                    </div>
+                </div>
+                <div class="row row-margin">
+                    <div id="font" class="tulisan bg-red text-center">
+                        <p> Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.</p>
+                        <p>Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm">
+                <div class="row row-margin h-100">
+                    <div id="warna-bg" class="tulisan bg-blue text-center">
+                        <p>Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.</p>
+                        <button id="ganti-warna" class="tombol btn btn-danger text-center"> Ganti Warna <i class="fa fa-cog fa-spin"></i></button>
+                        <br>
+                        <br>
+                        <button id="reset-warna" class="tombol btn btn-success text-center"> Reset Warna <i class="fa fa-cog fa-spin"></i></button>
+                        <br />
+                        <br />
+                        <select id="ubah-font" class="combo custom-select">
+                            <option value="Arial">Arial</option>
+                            <option value="Verdana ">Verdana </option>
+                            <option value="Impact ">Impact </option>
+                            <option value="Comic Sans MS">Comic Sans MS</option>
+                        </select>
+                        <br />
+                        <br />
+                        <button onclick="alert();" class="tombol btn btn-success text-center"> Ini Alert OnClick</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-bg">
+            <div class="col-sm">
+                <div class="row row-margin">
+                    <div class="tulisan bg-blue text-center">
+                        <h2>Ini Tabel Avengers</h2>
+                        <table class="table tabel table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Nama</th>
+                                    <th scope="col">Tinggi</th>
+                                    <th scope="col">Berat</th>
+                                    <th scope="col">Gender</th>
+                                    <th scope="col">Lahir</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabelOrang">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

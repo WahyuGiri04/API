@@ -168,8 +168,8 @@ namespace API.Repository.Data
                             GPA = edu.GPA,
                             RoleName = role.RoleName,
                             UniversityName = uni.Name
-                        }).Where(em => em.NIK == NIK).FirstOrDefault();
-            yield return join;
+                        }).Where(em => em.NIK == NIK).ToList();
+            return join;
         }
         public string Login(LoginVM loginVM)
         {
@@ -263,6 +263,75 @@ namespace API.Repository.Data
             {
                 return 0;
             }
+        }
+        public int Hapus(string NIK)
+        {
+            var dataEdu = myContext.Profilings.Find(NIK);
+            var idEdu = dataEdu.EducationId;
+
+            var hapusEdu = myContext.Educations.Find(idEdu);
+            myContext.Remove(hapusEdu);
+            myContext.SaveChanges();
+            var entity = myContext.Employees.Find(NIK);
+            myContext.Remove(entity);
+            var result = myContext.SaveChanges();
+            return result;
+        }
+        public IEnumerable<GetGender> GetGender()
+        {
+            var result = from emp in myContext.Employees
+                         group emp by emp.Gender into x
+                         select new GetGender
+                         {
+                             Gender = (Viewmodels.Gender)x.Key,
+                             Jumlah = x.Count()
+                         };
+            return result;
+        }
+        public IEnumerable GetRole()
+        {
+            var result = from acr in myContext.AccountRoles
+                         join rol in myContext.Roles
+                        on acr.RoleId equals rol.RoleId
+                         group rol by new { rol.RoleId, rol.RoleName } into a
+                         select new
+                         {
+                             roleName = a.Key.RoleName,
+                             Jumlah = a.Count()
+                         };
+            return result;
+        }
+        public Object[] GetSalary()
+        {
+            var data = (from e in myContext.Employees
+                        select new {
+                            Label = "Salary < Rp. 2.000.000",
+                            Jumlah = (from emp in myContext.Employees
+                                      where emp.Salary < 2000000 select emp.Salary).Count()
+                        }).First();
+            var data1 = (from e in myContext.Employees
+                        select new
+                        {
+                            Label = "Rp. 2.000.000 - Rp. 5.000.0000",
+                            Jumlah = (from emp in myContext.Employees
+                                      where emp.Salary >= 2000000 && emp.Salary <= 5000000
+                                      select emp.Salary).Count()
+                        }).First();
+            var data2 = (from e in myContext.Employees
+                        select new
+                        {
+                            Label = "Salary > Rp. 5.000.000",
+                            Jumlah = (from emp in myContext.Employees
+                                      where emp.Salary > 5000000
+                                      select emp.Salary).Count()
+                        }).First();
+
+            List<Object> result = new List<Object>();
+            result.Add(data);
+            result.Add(data1);
+            result.Add(data2);
+
+            return result.ToArray();
         }
     }
     public class Hasing

@@ -1,0 +1,70 @@
+﻿body{
+    background-color : darkblue;
+}
+main{
+    margin-bottom :100px;
+    margin-top : 100px;
+}
+nav{
+    font-family : 'ubuntu', sans-serif;
+}
+.text-nav {
+    font-family: 'Fruktur', cursive;
+}
+.tulisan {
+    border-radius: 20px 20px 20px 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    padding: 30px;
+}
+.bg-ijo {
+    background-color: #1ab394 !important;
+}
+.bg-red {
+    background-color: red;
+}
+.bg-blue {
+    background-color: blue;
+}
+.bg-dark-blue{
+    background-color : darkblue;
+}
+.row-bg{
+    background-color : lightgray;
+    border-radius :20px 20px 20px 20px;
+    margin-top : 10px;
+}
+.row-margin{
+    margin : 0px 0px 0px 0px;
+}
+.col-posisi{
+    padding-block : auto;
+}
+footer{
+    height : 135px;
+}
+footer.paragraf{
+    font-size :2rem;
+}
+.footer{
+    color : #ffff;
+}
+.footer-text{
+    width : 100%;
+    height :30px;
+}
+.tombol{
+    border-radius : 10px 10px 10px 10px;
+    padding : 10px 10px 10px 10px;
+    width : 300px ;
+    color : white;
+}
+.combo{
+    width : 300px;
+}
+.tabel{
+    background-color : darkorange;
+    border-radius : 10px 10px 10px 10px;
+    width : 1000px;
+}
