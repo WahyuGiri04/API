@@ -98,4 +98,3 @@ E:\MCC\Project Tugas\API\Users\obj\Debug\netcoreapp3.1\Users.csproj.CopyComplete
 E:\MCC\Project Tugas\API\Users\obj\Debug\netcoreapp3.1\Users.dll
 E:\MCC\Project Tugas\API\Users\obj\Debug\netcoreapp3.1\Users.pdb
 E:\MCC\Project Tugas\API\Users\obj\Debug\netcoreapp3.1\Users.genruntimeconfig.cache
-E:\MCC\Project Tugas\API\Users\obj\Debug\netcoreapp3.1\Razor\Views\Home\Login.cshtml.g.cs
