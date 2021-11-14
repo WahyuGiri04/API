@@ -1,0 +1,158 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Employee";
+}
+
+<style>
+    .btn-poison {
+        color: #fff;
+        background-color: #B76EA4;
+    }
+
+    .btn-grass {
+        color: #fff;
+        background-color: #80BE62;
+    }
+
+    .btn-normal {
+        color: #fff;
+        background-color: #B7B6A4;
+    }
+
+    .btn-flying {
+        color: #fff;
+        background-color: #9AA8FA;
+    }
+
+    .btn-bug {
+        color: #fff;
+        background-color: #B7C43F;
+    }
+
+    .btn-water {
+        color: #fff;
+        background-color: #3399FF;
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-12 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <h1 class="h3 mb-2 text-gray-800">Tabel Data Pokemon</h1>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-file fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover" id="tabelPoke">
+                    <thead class="table">
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Nama</th>
+                            <th scope="col">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabelPokemon">
+                        <tr>
+                            <td scope="col">No</td>
+                            <td scope="col">Nama</td>
+                            <td scope="col">Aksi</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="myModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header text-center">
+                <h4 class="modal-title" id="namaPokemon"></h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-6" id="gambarPokemon">
+
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-12">
+                                <h3>Pokemon Data</h3>
+                                <table class="table table-hover">
+                                    <tr>
+                                        <td>Height </td>
+                                        <td> : </td>
+                                        <td id="heightPokemon"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Weight </td>
+                                        <td> : </td>
+                                        <td id="weightPokemon"> 10 cm</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ability </td>
+                                        <td> : </td>
+                                        <td id="abilityPokemon"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <h3>Type</h3>
+                                <div id="typePokemon">
+                                    <span class="badge badge-danger"> Danger</span>
+                                    <span class="badge badge-danger"> Danger</span>
+                                    <span class="badge badge-danger"> Danger</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script src="~/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="~/js/demo/datatables-demo.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
+    <script src="~/js/Pokemon.js"></script>
+}
