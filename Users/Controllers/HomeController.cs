@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using Users.Models;
 
 namespace Users.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -27,11 +29,11 @@ namespace Users.Controllers
         {
             return View();
         }
-        public IActionResult Login()
+
+        public IActionResult Pokemon()
         {
             return View();
         }
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

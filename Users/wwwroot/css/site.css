@@ -95,3 +95,43 @@ body {
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+
+.bg-modal-detail {
+    padding: 30px;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.badge {
+    padding: 10px;
+    margin-right: 10px;
+    font-size: 15px;
+}
+
+
+.btn-poison {
+    background-color: #B76EA4;
+}
+
+.btn-grass {
+    background-color: #80BE62;
+}
+
+.btn-normal {
+    background-color: #B7B6A4;
+}
+
+.btn-flying {
+    background-color: #9AA8FA;
+}
+
+.btn-bug {
+    background-color: #B7C43F;
+}
+
+.btn-water {
+    background-color: #3399FF;
+}
+
+.button-align {
+    align-content: start;
+}

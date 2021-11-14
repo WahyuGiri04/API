@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -12,6 +13,7 @@ using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Users.Base.Url;
@@ -34,6 +36,7 @@ namespace Users
 
             services.AddScoped<EmployeeRepository>();
             services.AddScoped<Address>();
+            services.AddScoped<LoginRepository>();
 
             services.AddControllersWithViews();
             services.AddSession();
@@ -58,6 +61,11 @@ namespace Users
                     ClockSkew = TimeSpan.Zero
                 };
             });
+
+            //services.AddMvc(options =>
+            //{
+            //    options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -78,6 +86,20 @@ namespace Users
 
             app.UseRouting();
 
+            app.UseStatusCodePages(async context => {
+                var request = context.HttpContext.Request;
+                var response = context.HttpContext.Response;
+
+                if (response.StatusCode.Equals((int)HttpStatusCode.Unauthorized))
+                {
+                    response.Redirect("/Logins/Error401");
+                }
+                else if (response.StatusCode.Equals((int)HttpStatusCode.NotFound))
+                {
+                    response.Redirect("/Logins/ErrorNotFound");
+                }
+            });
+
             app.UseSession();
             app.Use(async (context, next) =>
             {
@@ -97,7 +119,7 @@ namespace Users
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Login}/{id?}");
+                    pattern: "{controller=Logins}/{action=index}/{id?}");
             });
         }
     }

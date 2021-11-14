@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Users.Controllers;
 using Users.Repositories.Interface;
 
 namespace Users.Base.Controllers
@@ -12,10 +13,16 @@ namespace Users.Base.Controllers
            where TRepository : IRepository<TEntity, TId>
     {
         private readonly TRepository repository;
+        private LoginsController repository1;
 
         public BaseController(TRepository repository)
         {
             this.repository = repository;
+        }
+
+        public BaseController(LoginsController repository1)
+        {
+            this.repository1 = repository1;
         }
 
         [HttpGet]

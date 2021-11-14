@@ -39,19 +39,19 @@ namespace API.Controllers
             var cek = employeeRepository.Register(registerVM);
             if (cek == 1)
             {
-                return Ok(new { status = HttpStatusCode.OK, messege = "Data Berhasil Ditambahkan" });
+                return Ok(new ResultVM { Status = (HttpStatusCode.OK).ToString(), Pesan = "Data Berhasil Ditambahkan" });
             }
             if (cek == 2)
             {
-                return NotFound(new { status = HttpStatusCode.NotFound, messege = "Data Gagal di tambahkan ( NIK Sudah ada ) !!!" });
+                return NotFound(new ResultVM { Status = (HttpStatusCode.NotFound).ToString(), Pesan = "Data Gagal di tambahkan ( NIK Sudah ada ) !!!" });
             }
             if (cek == 3)
             {
-                return NotFound(new { status = HttpStatusCode.NotFound, messege = "Data Gagal Ditambahkan ( Email Sudah di Gunakan ) !!!!" });
+                return NotFound(new ResultVM { Status = HttpStatusCode.NotFound.ToString(), Pesan = "Data Gagal Ditambahkan ( Email Sudah di Gunakan ) !!!!" });
             }
             else
             {
-                return NotFound(new { status = HttpStatusCode.NotFound, messege = "Data Gagal Ditambahkan ( No Hp sudah di gunakan )!!!" });
+                return NotFound(new ResultVM { Status = HttpStatusCode.NotFound.ToString(), Pesan = "Data Gagal Ditambahkan ( No Hp sudah di gunakan )!!!" });
             }
         }
 
@@ -115,11 +115,11 @@ namespace API.Controllers
             var cek = employeeRepository.Sign(loginVM);
             if (cek == 2)
             {
-                return NotFound(new { status = HttpStatusCode.NotFound, messege = "Gagal Login email tidak terdaftar !!!" });
+                return NotFound(new JWTokenVM { Token = "", Messages = "0" });
             }
             if (cek == 0)
             {
-                return NotFound(new { status = HttpStatusCode.NotFound, messege = "Gagal Login password salah!!!" });
+                return NotFound(new JWTokenVM { Token = "", Messages = "1" });
             }
             else
             {
@@ -149,7 +149,7 @@ namespace API.Controllers
                     );
                 var idtoken = new JwtSecurityTokenHandler().WriteToken(token); //generate token
                 claims.Add(new Claim("TokenSecurity", idtoken.ToString()));
-                return Ok(new { status = HttpStatusCode.OK, idtoken, messege = "Berhasil Login" });
+                return Ok(new JWTokenVM { Token = idtoken, Messages = "Berhasil Login" });
             }
         }
 

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Users.Base.Controllers;
 using Users.Repositories.Data;
@@ -49,23 +50,32 @@ namespace Users.Controllers
             return Json(result);
         }
 
-        [ValidateAntiForgeryToken]
-        [HttpPost("Auth/")]
-        public async Task<IActionResult> Auth(LoginVM login)
-        {
-            var jwtToken = await repository.Auth(login);
-            var token = jwtToken.Token;
+        //[ValidateAntiForgeryToken]
+        //[HttpPost("Auth/")]
+        //public async Task<IActionResult> Auth(LoginVM login)
+        //{
+        //    var jwtToken = await repository.Auth(login);
+        //    var token = jwtToken.Token;
 
-            if (token == null)
-            {
-                return RedirectToAction("index");
-            }
+        //    if (token == null)
+        //    {
+        //        return RedirectToAction("Login", "Home");
+        //    }
 
-            HttpContext.Session.SetString("JWToken", token);
-            //HttpContext.Session.SetString("Name", jwtHandler.GetName(token));
-            //HttpContext.Session.SetString("ProfilePicture", "assets/img/theme/user.png");
+        //    HttpContext.Session.SetString("JWToken", token);
+        //    //HttpContext.Session.SetString("Name", jwtHandler.GetName(token));
+        //    //HttpContext.Session.SetString("ProfilePicture", "assets/img/theme/user.png");
 
-            return RedirectToAction("index", "dashboard");
-        }
+        //    //return RedirectToAction("index", "dashboard");
+
+        //    return RedirectToAction("index", "Home");
+        //}
+
+        //[Authorize]
+        //public IActionResult Logout()
+        //{
+        //    HttpContext.Session.Clear();
+        //    return RedirectToAction("index", "Logins"); 
+        //}
     }
 }
