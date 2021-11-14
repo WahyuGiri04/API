@@ -125,6 +125,7 @@ E:\MCC\Project Tugas\API\API\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Mic
 E:\MCC\Project Tugas\API\API\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 E:\MCC\Project Tugas\API\API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 E:\MCC\Project Tugas\API\API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+E:\MCC\Project Tugas\API\API\obj\Debug\netcoreapp3.1\API.csproj.AssemblyReference.cache
 E:\MCC\Project Tugas\API\API\obj\Debug\netcoreapp3.1\API.GeneratedMSBuildEditorConfig.editorconfig
 E:\MCC\Project Tugas\API\API\obj\Debug\netcoreapp3.1\API.AssemblyInfoInputs.cache
 E:\MCC\Project Tugas\API\API\obj\Debug\netcoreapp3.1\API.AssemblyInfo.cs
@@ -134,7 +135,7 @@ E:\MCC\Project Tugas\API\API\obj\Debug\netcoreapp3.1\staticwebassets\API.StaticW
 E:\MCC\Project Tugas\API\API\obj\Debug\netcoreapp3.1\staticwebassets\API.StaticWebAssets.xml
 E:\MCC\Project Tugas\API\API\obj\Debug\netcoreapp3.1\scopedcss\bundle\API.styles.css
 E:\MCC\Project Tugas\API\API\obj\Debug\netcoreapp3.1\API.RazorTargetAssemblyInfo.cache
+E:\MCC\Project Tugas\API\API\obj\Debug\netcoreapp3.1\API.csproj.CopyComplete
 E:\MCC\Project Tugas\API\API\obj\Debug\netcoreapp3.1\API.dll
 E:\MCC\Project Tugas\API\API\obj\Debug\netcoreapp3.1\API.pdb
 E:\MCC\Project Tugas\API\API\obj\Debug\netcoreapp3.1\API.genruntimeconfig.cache
-E:\MCC\Project Tugas\API\API\obj\Debug\netcoreapp3.1\API.csproj.AssemblyReference.cache

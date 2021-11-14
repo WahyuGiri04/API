@@ -1,6 +1,7 @@
 ﻿
 using API.Models;
 using API.Viewmodels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -71,17 +72,17 @@ namespace Users.Repositories.Data
             return result.StatusCode;
         }
 
-        public async Task<JWTokenVM> Auth(LoginVM login)
-        {
-            JWTokenVM token = null;
+        //public async Task<JWTokenVM> Auth(LoginVM login)
+        //{
+        //    JWTokenVM token = null; 
 
-            StringContent content = new StringContent(JsonConvert.SerializeObject(login), Encoding.UTF8, "application/json");
-            var result = await httpClient.PostAsync(request + "Auth", content);
+        //    StringContent content = new StringContent(JsonConvert.SerializeObject(login), Encoding.UTF8, "application/json");
+        //    var result = await httpClient.PostAsync(request + "Sign", content);
 
-            string apiResponse = await result.Content.ReadAsStringAsync();
-            token = JsonConvert.DeserializeObject<JWTokenVM>(apiResponse);
+        //    string apiResponse = await result.Content.ReadAsStringAsync();
+        //    token = JsonConvert.DeserializeObject<JWTokenVM>(apiResponse);
 
-            return token;
-        }
+        //    return token;
+        //}
     }
 }

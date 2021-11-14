@@ -216,8 +216,6 @@ function Insert() {
     obj.UniversityId = $("#university").val();
     obj.RoleId = $("#role").val();
 
-    console.log(obj);
-
     $.ajax({
         url: "/Employees/Register",
         //headers: {
@@ -228,6 +226,7 @@ function Insert() {
         'data': { entity : obj },
         'dataType': 'json'
     }).done((result) => {
+        console.log(result);
         swal.fire(
             'hore berhasil :)',
             'akhrinya berhasil juga',
@@ -248,6 +247,7 @@ function Get(nik) {
     $.ajax({
         url: "/employees/get/" + nik,
         success: function (result) {
+            console.log(result);
             $('#eNIK').val(result.nik);
             $('#eFirstName').val(result.firstName);
             $('#eLastName').val(result.lastName);
@@ -256,7 +256,7 @@ function Get(nik) {
             $('#eBirthDate').val(tanggal);
             $('#eSalary').val(result.salary);
             $('#eEmail').val(result.email);
-            if (result.gender === "Male") {
+            if (result.gender == 0) {
                 $('#eGender').val(0);
             } else {
                 $('#eGender').val(1);
