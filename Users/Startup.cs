@@ -62,10 +62,6 @@ namespace Users
                 };
             });
 
-            //services.AddMvc(options =>
-            //{
-            //    options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
-            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -86,7 +82,8 @@ namespace Users
 
             app.UseRouting();
 
-            app.UseStatusCodePages(async context => {
+            app.UseStatusCodePages(async context =>
+            {
                 var request = context.HttpContext.Request;
                 var response = context.HttpContext.Response;
 
